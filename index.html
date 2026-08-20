@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV Mitra Mutiara Kencana — Pengadaan Barang & Jasa Acara</title>
+    <meta
+      name="description"
+      content="Katalog pengadaan CV Mitra Mutiara Kencana: souvenir & ATK, sewa perlengkapan acara, sewa tenda, dan catering."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="header__logo" href="index.html">
+          <span class="header__logo-mark">ini logo</span>
+          <span class="header__logo-text">
+            CV Mitra Mutiara Kencana
+            <small>Barang & Jasa Acara</small>
+          </span>
+        </a>
+        <button class="nav__toggle" type="button" aria-label="Buka menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav" id="main-nav">
+          <ul class="nav__list">
+            <li><a class="nav__link nav__link--active" href="index.html">Beranda</a></li>
+            <li><a class="nav__link" href="kategori.html?kategori=souvenir-atk">Souvenir & ATK</a></li>
+            <li><a class="nav__link" href="kategori.html?kategori=sewa-perlengkapan">Perlengkapan</a></li>
+            <li><a class="nav__link" href="kategori.html?kategori=sewa-tenda">Tenda</a></li>
+            <li><a class="nav__link" href="kategori.html?kategori=catering">Catering</a></li>
+            <li><a class="nav__link" href="kontak.html">Kontak</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <div class="container hero__inner">
+          <div>
+            <p class="hero__eyebrow">CV Mitra Mutiara Kencana</p>
+            <h1 class="hero__title">Katalog pengadaan souvenir, sewa acara, tenda, dan catering.</h1>
+            <p class="hero__desc">
+              Selamat datang di katalog CV Mitra Mutiara Kencana. Lihat daftar produk, bandingkan opsi,
+              lalu pesan langsung via WhatsApp. Cocok untuk kebutuhan kantor, instansi, dan penyelenggaraan acara.
+            </p>
+            <a class="btn btn--cta" href="kategori.html?kategori=sewa-tenda">Lihat Katalog</a>
+          </div>
+          <aside class="hero__panel">
+            <h2>4 kategori layanan</h2>
+            <ul>
+              <li>Souvenir &amp; Alat Tulis Kantor</li>
+              <li>Sewa meja, kursi, dan perlengkapan acara</li>
+              <li>Sewa tenda dekorasi, roder, kerucut, dan bazar</li>
+              <li>Paket catering rapat dan event</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="section__title">Pilih kategori</h2>
+            <p class="section__desc">Klik kartu untuk melihat daftar produk di kategori tersebut.</p>
+          </div>
+          <div class="category-grid" id="category-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div>
+            <h2 class="footer__title">CV Mitra Mutiara Kencana</h2>
+            <p class="footer__text">Pengadaan barang dan jasa acara: souvenir, perlengkapan, tenda, dan catering.</p>
+          </div>
+          <div>
+            <h2 class="footer__title">Kontak</h2>
+            <p class="footer__text">
+              WhatsApp: 0812-3456-7890<br />
+              Email: info@iniisiemail.id<br />
+              Jakarta Selatan
+            </p>
+          </div>
+          <div>
+            <h2 class="footer__title">Kategori</h2>
+            <ul class="footer__list">
+              <li><a href="kategori.html?kategori=souvenir-atk">Souvenir &amp; ATK</a></li>
+              <li><a href="kategori.html?kategori=sewa-perlengkapan">Sewa Perlengkapan</a></li>
+              <li><a href="kategori.html?kategori=sewa-tenda">Sewa Tenda</a></li>
+              <li><a href="kategori.html?kategori=catering">Catering</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer__copy">&copy; <span data-year></span> CV Mitra Mutiara Kencana. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      // Isi 4 kartu kategori dari data.js
+      const grid = document.getElementById("category-grid");
+      grid.innerHTML = CATEGORIES.map(
+        (category) => `
+        <article class="category-card">
+          <img class="category-card__image" src="${category.image}" alt="${category.name}" />
+          <div class="category-card__body">
+            <h3 class="category-card__title">${category.name}</h3>
+            <p class="category-card__desc">${category.description}</p>
+            <a class="btn btn--primary" href="kategori.html?kategori=${category.slug}">Lihat Produk</a>
+          </div>
+        </article>
+      `
+      ).join("");
+    </script>
+  </body>
+</html>

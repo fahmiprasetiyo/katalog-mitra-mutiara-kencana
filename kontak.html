@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontak — CV Mitra Mutiara Kencana</title>
+    <meta
+      name="description"
+      content="Hubungi CV Mitra Mutiara Kencana untuk pengadaan souvenir, sewa perlengkapan acara, tenda, dan catering."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="header__logo" href="index.html">
+          <span class="header__logo-mark">ini logo</span>
+          <span class="header__logo-text">
+            CV Mitra Mutiara Kencana
+            <small>Barang & Jasa Acara</small>
+          </span>
+        </a>
+        <button class="nav__toggle" type="button" aria-label="Buka menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav" id="main-nav">
+          <ul class="nav__list">
+            <li><a class="nav__link" href="index.html">Beranda</a></li>
+            <li><a class="nav__link" href="kategori.html?kategori=souvenir-atk">Souvenir & ATK</a></li>
+            <li><a class="nav__link" href="kategori.html?kategori=sewa-perlengkapan">Perlengkapan</a></li>
+            <li><a class="nav__link" href="kategori.html?kategori=sewa-tenda">Tenda</a></li>
+            <li><a class="nav__link" href="kategori.html?kategori=catering">Catering</a></li>
+            <li><a class="nav__link nav__link--active" href="kontak.html">Kontak</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page section">
+      <div class="container">
+        <div class="section__head">
+          <h1 class="section__title">Hubungi kami</h1>
+          <p class="section__desc">Kirim kebutuhan pengadaan Anda. Tim kami akan merespons via WhatsApp atau email.</p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h2>CV Mitra Mutiara Kencana</h2>
+            <p>Pengadaan souvenir &amp; ATK, sewa perlengkapan acara, sewa tenda, dan catering.</p>
+            <p>
+              <strong>Alamat:</strong><br />
+              Jl. ini isi alamat<br />
+              Jakarta Selatan
+            </p>
+            <p>
+              <strong>Jam operasional:</strong><br />
+              Senin–Sabtu, 08.00–17.00 WIB
+            </p>
+            <div class="contact-card__actions">
+              <a
+                class="btn btn--cta"
+                id="wa-link"
+                href="https://wa.me/6281234567890?text=Halo%20CV%20Mitra%20Mutiara%20Kencana%2C%20saya%20ingin%20bertanya%20tentang%20pengadaan."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Chat via WhatsApp
+              </a>
+              <a class="btn btn--ghost" href="mailto:info@iniisiemail.id">Kirim Email</a>
+            </div>
+          </article>
+
+          <aside class="info-card">
+            <h2>Info singkat</h2>
+            <p>WhatsApp: 0812-3456-7890</p>
+            <p>Email: info@iniisiemail.id</p>
+            <p>Nomor dan alamat di halaman ini masih placeholder. Nanti bisa diganti di <code>js/data.js</code>.</p>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div>
+            <h2 class="footer__title">CV Mitra Mutiara Kencana</h2>
+            <p class="footer__text">Pengadaan barang dan jasa acara: souvenir, perlengkapan, tenda, dan catering.</p>
+          </div>
+          <div>
+            <h2 class="footer__title">Kontak</h2>
+            <p class="footer__text">
+              WhatsApp: 0812-3456-7890<br />
+              Email: info@iniisiemail.id<br />
+              Jakarta Selatan
+            </p>
+          </div>
+          <div>
+            <h2 class="footer__title">Kategori</h2>
+            <ul class="footer__list">
+              <li><a href="kategori.html?kategori=souvenir-atk">Souvenir &amp; ATK</a></li>
+              <li><a href="kategori.html?kategori=sewa-perlengkapan">Sewa Perlengkapan</a></li>
+              <li><a href="kategori.html?kategori=sewa-tenda">Sewa Tenda</a></li>
+              <li><a href="kategori.html?kategori=catering">Catering</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer__copy">&copy; <span data-year></span> CV Mitra Mutiara Kencana. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
