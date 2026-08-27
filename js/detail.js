@@ -24,6 +24,26 @@ if (!product) {
   );
   const waLink = `https://wa.me/${COMPANY.whatsapp}?text=${waMessage}`;
 
+  // Pecah deskripsi per paragraf (dipisah baris kosong)
+  const descriptionHtml = String(product.deskripsi)
+    .split(/\n\s*\n/)
+    .map((paragraph) => `<p class="detail__desc">${paragraph.trim()}</p>`)
+    .join("");
+
+  const hasSpec =
+    Array.isArray(product.spesifikasi) && product.spesifikasi.length > 0;
+  const specListHtml = hasSpec
+    ? `<h2 class="detail__spec-title">Spesifikasi</h2>
+      <ul class="detail__spec-list">
+        ${product.spesifikasi.map((item) => `<li>${item}</li>`).join("")}
+      </ul>`
+    : `<p class="detail__desc">Spesifikasi belum tersedia.</p>`;
+
+  const satuanHtml =
+    product.satuan && !String(product.satuan).startsWith("[")
+      ? `<span class="product-card__unit"> / ${product.satuan}</span>`
+      : "";
+
   rootEl.innerHTML = `
     <p class="breadcrumb">
       <a href="index.html">Beranda</a> /
@@ -35,10 +55,39 @@ if (!product) {
       <div class="detail__body">
         <p class="detail__tag">${product.subKategori}</p>
         <h1 class="detail__title">${product.nama}</h1>
-        <p class="detail__price">${product.harga} <span class="product-card__unit">/ ${product.satuan}</span></p>
-        <p class="detail__desc">${product.deskripsi}</p>
+        <p class="detail__price">${product.harga}${satuanHtml}</p>
+        <div class="detail__tabs">
+          <div class="detail__tab-list" role="tablist">
+            <button class="detail__tab detail__tab--active" type="button" data-tab="deskripsi">Deskripsi</button>
+            <button class="detail__tab" type="button" data-tab="spesifikasi">Spesifikasi</button>
+          </div>
+          <div class="detail__tab-panel detail__tab-panel--active" data-panel="deskripsi">
+            ${descriptionHtml}
+          </div>
+          <div class="detail__tab-panel" data-panel="spesifikasi">
+            ${specListHtml}
+          </div>
+        </div>
         <a class="btn btn--cta" href="${waLink}" target="_blank" rel="noopener noreferrer">Pesan via WhatsApp</a>
       </div>
     </article>
   `;
+
+  const tabButtons = rootEl.querySelectorAll(".detail__tab");
+  const tabPanels = rootEl.querySelectorAll(".detail__tab-panel");
+
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const target = button.dataset.tab;
+
+      tabButtons.forEach((item) => item.classList.remove("detail__tab--active"));
+      tabPanels.forEach((panel) => panel.classList.remove("detail__tab-panel--active"));
+
+      button.classList.add("detail__tab--active");
+      const activePanel = rootEl.querySelector(`[data-panel="${target}"]`);
+      if (activePanel) {
+        activePanel.classList.add("detail__tab-panel--active");
+      }
+    });
+  });
 }

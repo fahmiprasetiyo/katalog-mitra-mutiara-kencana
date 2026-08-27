@@ -71,8 +71,11 @@ const renderProducts = () => {
           <span class="product-card__tag">${product.subKategori}</span>
           <h2 class="product-card__title">${product.nama}</h2>
           <p class="product-card__price">
-            ${product.harga}
-            <span class="product-card__unit"> / ${product.satuan}</span>
+            ${product.harga}${
+              product.satuan && !String(product.satuan).startsWith("[")
+                ? `<span class="product-card__unit"> / ${product.satuan}</span>`
+                : ""
+            }
           </p>
           <a class="btn btn--primary" href="detail.html?id=${product.id}">Lihat Detail</a>
         </div>
