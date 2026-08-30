@@ -216,6 +216,11 @@ select {
   font-size: 0.95rem;
 }
 
+/* Override display: inline-flex pada .btn supaya tombol benar-benar hilang */
+.is-hidden {
+  display: none !important;
+}
+
 .btn--primary {
   background: var(--color-blue);
   color: var(--color-white);
@@ -260,6 +265,8 @@ select {
   text-transform: uppercase;
   font-size: 0.8rem;
   color: #b7d4f5;
+  border-left: 3px solid var(--color-accent-red);
+  padding-left: 10px;
 }
 
 .hero__title {
@@ -277,6 +284,7 @@ select {
 .hero__panel {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.18);
+  border-left: 4px solid var(--color-accent-red);
   border-radius: var(--radius);
   padding: 20px;
 }
@@ -334,11 +342,31 @@ select {
   transform: translateY(-4px);
 }
 
-.category-card__image {
-  height: 160px;
-  object-fit: cover;
-  width: 100%;
+.category-card__slider {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
   background: var(--color-blue-soft);
+}
+
+.category-card__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.category-card__image.is-active {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .category-card__image {
+    transition: none;
+  }
 }
 
 .category-card__body {
@@ -372,6 +400,10 @@ select {
   grid-template-columns: 1fr auto;
   gap: 12px;
   margin-bottom: 24px;
+}
+
+.toolbar--search-only {
+  grid-template-columns: 1fr;
 }
 
 .search {
@@ -518,6 +550,103 @@ select {
   background: var(--color-blue-soft);
 }
 
+/* ===== Slider gambar detail (dipakai kalau produk punya beberapa gambar) ===== */
+.detail__gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail__slider {
+  position: relative;
+  /* touch-action supaya swipe horizontal tidak bentrok dengan scroll halaman */
+  touch-action: pan-y;
+}
+
+.detail__slider .detail__image {
+  display: block;
+}
+
+/* Gradient tipis di sisi kiri-kanan supaya panah putih tetap terbaca
+   walau gambar produknya terang. pointer-events none supaya tidak menghalangi klik. */
+.detail__slider::before,
+.detail__slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 72px;
+  pointer-events: none;
+}
+
+.detail__slider::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0));
+}
+
+.detail__slider::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0));
+}
+
+.detail__slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  /* Ikon minimalis, tapi area tap tetap lega untuk mobile */
+  min-width: 48px;
+  min-height: 48px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-white);
+  font-size: 2.4rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  opacity: 0.85;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.65);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.detail__slider-btn:hover,
+.detail__slider-btn:focus-visible {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.18);
+}
+
+.detail__slider-btn--prev {
+  left: 12px;
+}
+
+.detail__slider-btn--next {
+  right: 12px;
+}
+
+.detail__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding-bottom: 4px;
+}
+
+.detail__dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-white);
+  cursor: pointer;
+}
+
+.detail__dot--active {
+  background: var(--color-accent-red);
+  border-color: var(--color-accent-red);
+}
+
 .detail__body {
   padding: 28px 28px 28px 0;
 }
@@ -559,6 +688,7 @@ select {
 
 .detail__tab-list {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 14px;
 }
@@ -612,6 +742,67 @@ select {
   color: var(--color-accent-red);
 }
 
+.estimate {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin: 12px 0 20px;
+}
+
+.estimate__hint {
+  margin: 0 0 12px;
+  color: var(--color-muted);
+}
+
+.estimate__total {
+  margin: 0;
+  color: var(--color-navy);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.estimate__total strong {
+  font-size: 1.25rem;
+  color: var(--color-accent-red);
+}
+
+.qty-control {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--color-white);
+}
+
+.qty-control__btn {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: var(--color-navy);
+  color: var(--color-white);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.qty-control__btn:hover:not(:disabled) {
+  background: var(--color-accent-red);
+}
+
+.qty-control__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.qty-control__value {
+  min-width: 48px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
 .breadcrumb {
   margin: 0 0 20px;
   color: var(--color-muted);
@@ -651,6 +842,125 @@ select {
   margin-top: 16px;
 }
 
+/* ===== Tentang Kami ===== */
+.hero--compact {
+  padding: 40px 0 48px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.about-card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.about-card__text {
+  margin: 0;
+  color: var(--color-muted);
+  max-width: 72ch;
+}
+
+.about-section--soft {
+  background: var(--color-blue-soft);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--color-accent-red);
+}
+
+.service-card__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background: var(--color-navy);
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.service-card__title {
+  margin: 0 0 8px;
+  color: var(--color-navy);
+  font-size: 1.1rem;
+}
+
+.service-card__text {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.commit-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.commit-list__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-white);
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+  color: var(--color-navy);
+  font-weight: 600;
+}
+
+.commit-list__item::before {
+  content: "✓";
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-accent-red);
+  color: var(--color-white);
+  font-size: 0.8rem;
+}
+
+.about-close {
+  text-align: center;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.about-close__text {
+  margin: 0 0 20px;
+  color: var(--color-muted);
+}
+
+.about-close__tagline {
+  margin: 0 0 24px;
+  color: var(--color-accent-red);
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 960px) {
   .hero__inner,
@@ -658,7 +968,9 @@ select {
   .product-grid,
   .detail,
   .contact-grid,
-  .footer__inner {
+  .footer__inner,
+  .service-grid,
+  .commit-list {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -712,7 +1024,9 @@ select {
   .detail,
   .contact-grid,
   .footer__inner,
-  .toolbar {
+  .toolbar,
+  .service-grid,
+  .commit-list {
     grid-template-columns: 1fr;
   }
 

@@ -39,6 +39,7 @@
             <li><a class="nav__link" href="kategori.html?kategori=sewa-perlengkapan">Perlengkapan</a></li>
             <li><a class="nav__link" href="kategori.html?kategori=sewa-tenda">Tenda</a></li>
             <li><a class="nav__link" href="kategori.html?kategori=catering">Catering</a></li>
+            <li><a class="nav__link" href="tentang.html">Tentang Kami</a></li>
             <li><a class="nav__link nav__link--active" href="kontak.html">Kontak</a></li>
           </ul>
         </nav>
@@ -54,12 +55,11 @@
 
         <div class="contact-grid">
           <article class="contact-card">
-            <h2>CV Mitra Mutiara Kencana</h2>
+            <h2 data-company="name">CV Mitra Mutiara Kencana</h2>
             <p>Pengadaan souvenir &amp; ATK, sewa perlengkapan acara, sewa tenda, dan catering.</p>
             <p>
               <strong>Alamat:</strong><br />
-              Jl. ini isi alamat<br />
-              Jakarta Selatan
+              <span data-company="address"></span>
             </p>
             <p>
               <strong>Jam operasional:</strong><br />
@@ -68,22 +68,22 @@
             <div class="contact-card__actions">
               <a
                 class="btn btn--cta"
-                id="wa-link"
-                href="https://wa.me/6281234567890?text=Halo%20CV%20Mitra%20Mutiara%20Kencana%2C%20saya%20ingin%20bertanya%20tentang%20pengadaan."
+                data-company-wa="Halo CV Mitra Mutiara Kencana, saya ingin bertanya tentang pengadaan."
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Chat via WhatsApp
               </a>
-              <a class="btn btn--ghost" href="mailto:info@iniisiemail.id">Kirim Email</a>
+              <a class="btn btn--ghost" data-company-email href="#">Kirim Email</a>
             </div>
           </article>
 
           <aside class="info-card">
             <h2>Info singkat</h2>
-            <p>WhatsApp: 0812-3456-7890</p>
-            <p>Email: info@iniisiemail.id</p>
-            <p>Nomor dan alamat di halaman ini masih placeholder. Nanti bisa diganti di <code>js/data.js</code>.</p>
+            <p>WhatsApp: <span data-company="whatsapp"></span></p>
+            <p>Email: <span data-company="email"></span></p>
+            <p>Hubungi kami untuk penawaran pengadaan, sewa acara, atau catering.</p>
           </aside>
         </div>
       </div>
@@ -99,9 +99,9 @@
           <div>
             <h2 class="footer__title">Kontak</h2>
             <p class="footer__text">
-              WhatsApp: 0812-3456-7890<br />
-              Email: info@iniisiemail.id<br />
-              Jakarta Selatan
+              WhatsApp: <span data-company="whatsapp"></span><br />
+              Email: <span data-company="email"></span><br />
+              <span data-company="address"></span>
             </p>
           </div>
           <div>
