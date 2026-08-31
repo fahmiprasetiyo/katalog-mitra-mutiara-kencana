@@ -1,5 +1,5 @@
 // Untuk mengaktifkan kembali autoplay, ubah AUTOPLAY_ENABLED menjadi true di baris bawah ini.
-const AUTOPLAY_ENABLED = false;
+const AUTOPLAY_ENABLED = true;
 
 // Fungsi bersama: menu mobile, tahun footer, highlight menu aktif, dan helper gambar produk
 
