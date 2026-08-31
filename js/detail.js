@@ -183,17 +183,20 @@ if (!product) {
     const plusBtn = document.getElementById("qty-plus");
     const qtyValueEl = document.getElementById("qty-value");
     const totalEl = document.getElementById("estimate-total");
+    const estimateWaEl = document.getElementById("estimate-wa");
     let quantity = 1;
+
+    const buildEstimateMessage = () => {
+      const total = unitPrice * quantity;
+      return `Halo ${COMPANY.name}, saya ingin memesan ${product.nama} sebanyak ${quantity} box, estimasi total ${formatRupiah(total)}`;
+    };
 
     const updateEstimate = () => {
       const total = unitPrice * quantity;
       qtyValueEl.textContent = quantity;
       totalEl.textContent = formatRupiah(total);
       minusBtn.disabled = quantity <= 1;
-
-      estimateWaEl.href = getWhatsAppUrl(
-        `Halo ${COMPANY.name}, saya ingin memesan ${product.nama} sebanyak ${quantity} box, estimasi total ${formatRupiah(total)}`
-      );
+      estimateWaEl.href = getWhatsAppUrl(buildEstimateMessage());
     };
 
     minusBtn.addEventListener("click", () => {
@@ -206,6 +209,11 @@ if (!product) {
     plusBtn.addEventListener("click", () => {
       quantity += 1;
       updateEstimate();
+    });
+
+    // Pastikan href selalu sesuai jumlah terkini saat tombol diklik
+    estimateWaEl.addEventListener("click", () => {
+      estimateWaEl.href = getWhatsAppUrl(buildEstimateMessage());
     });
 
     updateEstimate();

@@ -3,11 +3,11 @@
 const COMPANY = {
   name: "CV Mitra Mutiara Kencana",
   tagline: "Pengadaan Barang & Jasa Acara",
-  phone: "085161970147",
-  //phone: "08131323187",
+  //phone: "085161970147",
+  phone: "08131323187",
   // Format lokal untuk ditampilkan; konversi ke 62... dilakukan di getWhatsAppNumber()
-  whatsapp: "085161970147",
-  //whatsapp: "08131323187",
+  //whatsapp: "085161970147",
+  whatsapp: "08131323187",
   email: "mitramutiarakencana@gmail.com",
   address: "Komp. Mutiara Platinum GMP 15, Pulo Gebang, Cakung, Jakarta Timur - DKI Jakarta",
 };
@@ -444,7 +444,7 @@ const PRODUCTS = [
     subKategori: "Snack Box",
     nama: "Paket Snack Box Regular - Lengkap, Lezat & Praktis",
     deskripsi:
-      "Paket Snack Box Reguler merupakan pilihan tepat untuk memenuhi kebutuhan konsumsi dalam berbagai acara, mulai dari rapat kantor, seminar, pelatihan, pengajian, arisan, syukuran, hingga acara keluarga. Setiap paket disiapkan menggunakan bahan-bahan berkualitas, diolah secara higienis, dan dikemas dengan rapi untuk memberikan pengalaman menikmati sajian yang praktis dan lezat.\n\nPaket ini terdiri dari Roti Sobek Keju yang lembut, Schotel Keju dengan cita rasa gurih, Risoles Mayones yang renyah di luar dan lembut di dalam, serta Air Mineral Cleo sebagai pelengkap. Kombinasi menu ini memberikan sajian yang seimbang dan cocok dinikmati kapan saja.\n\nKami melayani pemesanan untuk berbagai skala acara, baik dalam jumlah kecil maupun besar, dengan proses yang mudah, pelayanan profesional, serta pengiriman yang tepat waktu. Jadikan setiap acara lebih berkesan dengan Paket Snack Box Reguler yang praktis, lezat, dan berkualitas.\n\n",
+      "Paket Snack Box Reguler merupakan pilihan tepat untuk memenuhi kebutuhan konsumsi dalam berbagai acara, mulai dari rapat kantor, seminar, pelatihan, pengajian, arisan, syukuran, hingga acara keluarga. Setiap paket disiapkan menggunakan bahan-bahan berkualitas, diolah secara higienis, dan dikemas dengan rapi untuk memberikan pengalaman menikmati sajian yang praktis dan lezat. \n\nKami melayani pemesanan untuk berbagai skala acara, baik dalam jumlah kecil maupun besar, dengan proses yang mudah, pelayanan profesional, serta pengiriman yang tepat waktu. Jadikan setiap acara lebih berkesan dengan Paket Snack Box Reguler yang praktis, lezat, dan berkualitas.\n\n",
     spesifikasi: [
       "Roti Sobek Keju",
       "Schotel Keju",
@@ -464,7 +464,7 @@ const PRODUCTS = [
     subKategori: "Snack Box",
     nama: "Paket Snack Box Best Seller - Menu Favorit dengan Cita Rasa Berkualitas",
     deskripsi:
-      "Menu Favorit dengan Cita Rasa Berkualitas menghadirkan sajian berkualitas untuk setiap momen spesial bersama Paket Snack Box Best Seller. Paket ini berisi perpaduan camilan manis dan gurih yang dibuat dari bahan pilihan, dikemas secara higienis, dan disajikan dengan tampilan yang menarik sehingga cocok untuk berbagai jenis acara. \n\nDalam satu paket, Anda akan mendapatkan 1 roti premium, 1 dessert box, 1 kue talam pandan, 1 kemasan kacang, dan 1 minuman Teh Kotak. Kombinasi menu ini memberikan cita rasa yang lezat sekaligus praktis untuk dinikmati oleh tamu dan peserta acara. \n\nPaket Snack Box Best Seller sangat cocok untuk rapat kantor, seminar, pelatihan, pengajian, arisan, syukuran, ulang tahun, wisuda, hingga berbagai acara keluarga dan perusahaan. Kami melayani pemesanan dalam jumlah kecil maupun besar dengan kemasan rapi, kualitas terjaga, serta pengiriman tepat waktu agar acara Anda berjalan lancar.",
+      "Menu Favorit dengan Cita Rasa Berkualitas menghadirkan sajian berkualitas untuk setiap momen spesial bersama Paket Snack Box Best Seller. Paket ini berisi perpaduan camilan manis dan gurih yang dibuat dari bahan pilihan, dikemas secara higienis, dan disajikan dengan tampilan yang menarik sehingga cocok untuk berbagai jenis acara. \n\nPaket Snack Box Best Seller sangat cocok untuk rapat kantor, seminar, pelatihan, pengajian, arisan, syukuran, ulang tahun, wisuda, hingga berbagai acara keluarga dan perusahaan. Kami melayani pemesanan dalam jumlah kecil maupun besar dengan kemasan rapi, kualitas terjaga, serta pengiriman tepat waktu agar acara Anda berjalan lancar.",
     spesifikasi: [
       "Roti Premium",
       "Dessert Box",
