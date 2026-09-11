@@ -1,7 +1,6 @@
 // Data dummy produk — nanti bisa diganti harga, deskripsi, dan gambar asli
 
-// Ganti [URL_WEBSITE] dengan URL GitHub Pages Anda, tanpa garis miring di akhir.
-const SITE_URL = "https://[URL_WEBSITE]";
+const SITE_URL = "https://mitramutiarakencana.com";
 
 const COMPANY = {
   name: "CV Mitra Mutiara Kencana",

@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://[URL_WEBSITE]/index.html</loc>
+    <loc>https://mitramutiarakencana.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://[URL_WEBSITE]/kategori.html?kategori=catering</loc>
+    <loc>https://mitramutiarakencana.com/kategori.html?kategori=catering</loc>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://[URL_WEBSITE]/detail.html?id=cat-001</loc>
+    <loc>https://mitramutiarakencana.com/detail.html?id=cat-001</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://[URL_WEBSITE]/detail.html?id=cat-002</loc>
+    <loc>https://mitramutiarakencana.com/detail.html?id=cat-002</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://[URL_WEBSITE]/detail.html?id=cat-003</loc>
+    <loc>https://mitramutiarakencana.com/detail.html?id=cat-003</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://[URL_WEBSITE]/detail.html?id=cat-004</loc>
+    <loc>https://mitramutiarakencana.com/detail.html?id=cat-004</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://[URL_WEBSITE]/detail.html?id=cat-005</loc>
+    <loc>https://mitramutiarakencana.com/detail.html?id=cat-005</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://[URL_WEBSITE]/detail.html?id=cat-006</loc>
+    <loc>https://mitramutiarakencana.com/detail.html?id=cat-006</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://[URL_WEBSITE]/detail.html?id=cat-007</loc>
+    <loc>https://mitramutiarakencana.com/detail.html?id=cat-007</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://[URL_WEBSITE]/detail.html?id=cat-008</loc>
+    <loc>https://mitramutiarakencana.com/detail.html?id=cat-008</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://[URL_WEBSITE]/kategori.html?kategori=souvenir-atk</loc>
+    <loc>https://mitramutiarakencana.com/kategori.html?kategori=souvenir-atk</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://[URL_WEBSITE]/kategori.html?kategori=sewa-perlengkapan</loc>
+    <loc>https://mitramutiarakencana.com/kategori.html?kategori=sewa-perlengkapan</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://[URL_WEBSITE]/kategori.html?kategori=sewa-tenda</loc>
+    <loc>https://mitramutiarakencana.com/kategori.html?kategori=sewa-tenda</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://[URL_WEBSITE]/tentang.html</loc>
+    <loc>https://mitramutiarakencana.com/tentang.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://[URL_WEBSITE]/kontak.html</loc>
+    <loc>https://mitramutiarakencana.com/kontak.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

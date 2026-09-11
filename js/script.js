@@ -323,14 +323,16 @@ const setupFooterYear = () => {
 
 const highlightActiveNav = () => {
   const links = document.querySelectorAll(".nav__link");
-  const currentUrl = window.location.pathname.split("/").pop() || "index.html";
+  const fileName = window.location.pathname.split("/").filter(Boolean).pop() || "";
+  const isHomePage = fileName === "" || fileName === "index.html";
   const currentSearch = window.location.search;
 
   links.forEach((link) => {
     const href = link.getAttribute("href");
-    const isCategoryPage = currentUrl === "kategori.html";
+    const isHomeLink = href === "/" || href === "./" || href === "index.html";
+    const isCategoryPage = fileName === "kategori.html";
     const matchesCategory = isCategoryPage && currentSearch && href.includes(currentSearch);
-    const matchesPage = href === currentUrl || (currentUrl === "" && href === "index.html");
+    const matchesPage = isHomePage ? isHomeLink : href === fileName;
 
     link.classList.remove("nav__link--active");
 

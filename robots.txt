@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://[URL_WEBSITE]/sitemap.xml
+Sitemap: https://mitramutiarakencana.com/sitemap.xml

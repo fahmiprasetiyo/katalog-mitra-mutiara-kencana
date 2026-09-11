@@ -29,7 +29,7 @@ if (!product) {
   rootEl.innerHTML = `
     <p class="empty-state">
       Produk tidak ditemukan.
-      <a href="index.html">Kembali ke beranda</a>
+      <a href="/">Kembali ke beranda</a>
     </p>
   `;
 } else {
@@ -138,7 +138,7 @@ if (!product) {
 
   rootEl.innerHTML = `
     <p class="breadcrumb">
-      <a href="index.html">Beranda</a> /
+      <a href="/">Beranda</a> /
       <a href="kategori.html?kategori=${product.kategori}">${category ? category.name : "Kategori"}</a> /
       ${product.nama}
     </p>
