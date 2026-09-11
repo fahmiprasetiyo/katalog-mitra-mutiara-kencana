@@ -33,7 +33,46 @@ if (!product) {
     </p>
   `;
 } else {
-  document.title = `${product.nama} — CV Mitra Mutiara Kencana`;
+  const firstImage = getProductImages(product)[0] || "assets/images/logo.png";
+  const isCatering = product.kategori === "catering";
+  const rawDesc = String(product.deskripsi).replace(/\s+/g, " ").trim();
+  const productDesc = isCatering
+    ? `Catering ${product.subKategori} Jakarta. ${rawDesc}`.slice(0, 155)
+    : rawDesc.slice(0, 155);
+
+  updatePageSeo({
+    title: isCatering
+      ? `${product.nama} | Catering Jakarta | ${COMPANY.name}`
+      : `${product.nama} | ${COMPANY.name}`,
+    description: productDesc,
+    keywords: isCatering
+      ? `${product.nama}, catering ${product.subKategori} Jakarta, catering nasi box, snack box, prasmanan`
+      : `${product.nama}, ${product.subKategori}, ${category ? category.name : "katalog"}, Jakarta`,
+    url: `${SITE_URL}/detail.html?id=${product.id}`,
+    image: firstImage.startsWith("http") ? firstImage : `${SITE_URL}/${firstImage}`,
+  });
+
+  const schemaNode = document.getElementById("schema-product");
+  if (schemaNode && isCatering) {
+    const imageUrl = firstImage.startsWith("http") ? firstImage : `${SITE_URL}/${firstImage}`;
+    const offerPrice = parsePrice(product.harga);
+    schemaNode.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: product.nama,
+      description: productDesc,
+      image: imageUrl,
+      brand: { "@type": "Brand", name: COMPANY.name },
+      category: `Catering ${product.subKategori}`,
+      offers: {
+        "@type": "Offer",
+        url: `${SITE_URL}/detail.html?id=${product.id}`,
+        priceCurrency: "IDR",
+        availability: "https://schema.org/InStock",
+        ...(offerPrice ? { price: String(offerPrice) } : {}),
+      },
+    });
+  }
 
   const waLink = getWhatsAppUrl(
     `Halo ${COMPANY.name}, saya ingin memesan produk: ${product.nama}`

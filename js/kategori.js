@@ -16,11 +16,47 @@ let searchKeyword = "";
 
 const currentCategory = CATEGORIES.find((item) => item.slug === categorySlug);
 
+const CATEGORY_SEO = {
+  "souvenir-atk": {
+    title: "Pengadaan Souvenir & ATK Jakarta | CV Mitra Mutiara Kencana",
+    description:
+      "Pengadaan ATK, percetakan, dan souvenir custom untuk kantor, instansi, sekolah, dan event di Jakarta. Konsultasi via WhatsApp.",
+    keywords: "pengadaan ATK Jakarta, souvenir custom, percetakan, alat tulis kantor",
+  },
+  "sewa-perlengkapan": {
+    title: "Sewa Meja Kursi & Perlengkapan Acara Jakarta | CV Mitra Mutiara Kencana",
+    description:
+      "Sewa meja dan kursi untuk rapat, resepsi, seminar, dan event di Jakarta Timur. Informasi harga via WhatsApp.",
+    keywords: "sewa meja acara Jakarta, sewa kursi futura, sewa perlengkapan event",
+  },
+  "sewa-tenda": {
+    title: "Sewa Tenda Acara Jakarta | CV Mitra Mutiara Kencana",
+    description:
+      "Sewa tenda dekorasi, tenda roder, tenda kerucut, dan tenda bazar di Jakarta. Pesan via WhatsApp.",
+    keywords: "sewa tenda dekorasi, tenda roder, tenda kerucut, tenda bazar Jakarta",
+  },
+  catering: {
+    title: "Catering Nasi Box, Snack Box & Prasmanan Jakarta | CV Mitra Mutiara Kencana",
+    description:
+      "Catering nasi box, snack box, dan prasmanan untuk rapat, seminar, pelatihan, dan acara di Jakarta Timur. Lihat menu, hitung estimasi, pesan via WhatsApp.",
+    keywords:
+      "catering Jakarta, catering nasi box Jakarta, snack box meeting, catering prasmanan, catering rapat, catering seminar",
+  },
+};
+
 if (currentCategory) {
-  document.title = `${currentCategory.name} — CV Mitra Mutiara Kencana`;
   titleEl.textContent = currentCategory.name;
   descEl.textContent = currentCategory.description;
   breadcrumbEl.textContent = currentCategory.name;
+
+  const seo = CATEGORY_SEO[currentCategory.slug];
+  updatePageSeo({
+    title: seo ? seo.title : `${currentCategory.name} | ${COMPANY.name}`,
+    description: seo ? seo.description : currentCategory.description,
+    keywords: seo ? seo.keywords : currentCategory.name,
+    url: `${SITE_URL}/kategori.html?kategori=${currentCategory.slug}`,
+    image: `${SITE_URL}/assets/images/logo.png`,
+  });
 } else {
   titleEl.textContent = "Kategori tidak ditemukan";
   descEl.textContent = "Periksa kembali tautan kategori.";

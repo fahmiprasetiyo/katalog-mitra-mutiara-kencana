@@ -1,5 +1,8 @@
 // Data dummy produk — nanti bisa diganti harga, deskripsi, dan gambar asli
 
+// Ganti [URL_WEBSITE] dengan URL GitHub Pages Anda, tanpa garis miring di akhir.
+const SITE_URL = "https://[URL_WEBSITE]";
+
 const COMPANY = {
   name: "CV Mitra Mutiara Kencana",
   tagline: "Pengadaan Barang & Jasa Acara",
@@ -13,6 +16,15 @@ const COMPANY = {
 };
 
 const CATEGORIES = [
+  {
+    slug: "catering",
+    name: "Catering",
+    shortName: "Catering",
+    description: "Paket catering untuk rapat, gathering, dan acara resmi.",
+    image: "https://placehold.co/600x400/4A90D9/ffffff?text=Catering",
+    // Label tab spesifikasi di halaman detail; kalau kosong dipakai "Spesifikasi"
+    specLabel: "Menu",
+  },
   {
     slug: "souvenir-atk",
     name: "Souvenir & ATK",
@@ -41,15 +53,6 @@ const CATEGORIES = [
     hideSubCategoryFilter: true,
     // Harga disembunyikan di card grid, tetap tampil di halaman detail
     hidePriceOnCard: true,
-  },
-  {
-    slug: "catering",
-    name: "Catering",
-    shortName: "Catering",
-    description: "Paket catering untuk rapat, gathering, dan acara resmi.",
-    image: "https://placehold.co/600x400/4A90D9/ffffff?text=Catering",
-    // Label tab spesifikasi di halaman detail; kalau kosong dipakai "Spesifikasi"
-    specLabel: "Menu",
   },
 ];
 

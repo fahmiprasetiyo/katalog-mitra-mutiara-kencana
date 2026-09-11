@@ -1,6 +1,83 @@
 // Untuk mengaktifkan kembali autoplay, ubah AUTOPLAY_ENABLED menjadi true di baris bawah ini.
 const AUTOPLAY_ENABLED = true;
 
+const upsertMeta = (attr, key, content) => {
+  let node = document.querySelector(`meta[${attr}="${key}"]`);
+  if (!node) {
+    node = document.createElement("meta");
+    node.setAttribute(attr, key);
+    document.head.appendChild(node);
+  }
+  node.setAttribute("content", content);
+};
+
+const updatePageSeo = ({ title, description, url, image, keywords }) => {
+  if (title) {
+    document.title = title;
+    upsertMeta("property", "og:title", title);
+  }
+
+  if (description) {
+    upsertMeta("name", "description", description);
+    upsertMeta("property", "og:description", description);
+  }
+
+  if (keywords) {
+    upsertMeta("name", "keywords", keywords);
+  }
+
+  if (url) {
+    upsertMeta("property", "og:url", url);
+  }
+
+  if (image) {
+    upsertMeta("property", "og:image", image);
+  }
+};
+
+const setupLocalBusinessSchema = () => {
+  const schemaNode = document.getElementById("schema-local-business");
+  if (!schemaNode) {
+    return;
+  }
+
+  schemaNode.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: COMPANY.name,
+    description:
+      "Catering nasi box, snack box, dan prasmanan di Jakarta Timur. Tersedia juga pengadaan souvenir, sewa tenda, dan perlengkapan acara.",
+    url: SITE_URL,
+    telephone: `+${getWhatsAppNumber()}`,
+    email: COMPANY.email,
+    image: `${SITE_URL}/assets/images/logo.png`,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Komp. Mutiara Platinum GMP 15, Pulo Gebang, Cakung",
+      addressLocality: "Jakarta Timur",
+      addressRegion: "DKI Jakarta",
+      addressCountry: "ID",
+    },
+    areaServed: "Jakarta",
+    knowsAbout: [
+      "Catering nasi box",
+      "Catering snack box",
+      "Catering prasmanan",
+      "Catering rapat dan seminar",
+    ],
+    makesOffer: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Catering Nasi Box" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Catering Snack Box" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Catering Prasmanan" } },
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Paket Catering",
+      url: `${SITE_URL}/kategori.html?kategori=catering`,
+    },
+  });
+};
+
 // Fungsi bersama: menu mobile, tahun footer, highlight menu aktif, dan helper gambar produk
 
 // Field "gambar" bisa berupa array (produk dengan beberapa foto) atau string tunggal.
@@ -268,3 +345,4 @@ setupFooterYear();
 highlightActiveNav();
 fillCompanyContact();
 setupCategoryCards();
+setupLocalBusinessSchema();
