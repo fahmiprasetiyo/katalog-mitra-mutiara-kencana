@@ -321,6 +321,26 @@ const setupFooterYear = () => {
   });
 };
 
+const getHomeHref = () => {
+  const host = window.location.hostname.replace(/^www\./, "");
+
+  // Domain resmi: URL bersih tanpa nama file
+  if (host === "mitramutiarakencana.com") {
+    return "/";
+  }
+
+  // Live Server / GitHub Pages: tetap di folder situs, tanpa index.html
+  const folderPath = window.location.pathname.replace(/[^/]*$/, "");
+  return folderPath || "./";
+};
+
+const setupHomeLinks = () => {
+  const homeHref = getHomeHref();
+  document.querySelectorAll("[data-home]").forEach((link) => {
+    link.setAttribute("href", homeHref);
+  });
+};
+
 const highlightActiveNav = () => {
   const links = document.querySelectorAll(".nav__link");
   const fileName = window.location.pathname.split("/").filter(Boolean).pop() || "";
@@ -329,7 +349,12 @@ const highlightActiveNav = () => {
 
   links.forEach((link) => {
     const href = link.getAttribute("href");
-    const isHomeLink = href === "/" || href === "./" || href === "index.html";
+    const isHomeLink =
+      link.hasAttribute("data-home") ||
+      href === "/" ||
+      href === "./" ||
+      href === `${SITE_URL}/` ||
+      href === "index.html";
     const isCategoryPage = fileName === "kategori.html";
     const matchesCategory = isCategoryPage && currentSearch && href.includes(currentSearch);
     const matchesPage = isHomePage ? isHomeLink : href === fileName;
@@ -344,6 +369,7 @@ const highlightActiveNav = () => {
 
 setupMobileNav();
 setupFooterYear();
+setupHomeLinks();
 highlightActiveNav();
 fillCompanyContact();
 setupCategoryCards();
