@@ -321,23 +321,17 @@ const setupFooterYear = () => {
   });
 };
 
-const getHomeHref = () => {
-  const host = window.location.hostname.replace(/^www\./, "");
-
-  // Domain resmi: URL bersih tanpa nama file
-  if (host === "mitramutiarakencana.com") {
-    return "/";
-  }
-
-  // Live Server / GitHub Pages: tetap di folder situs, tanpa index.html
-  const folderPath = window.location.pathname.replace(/[^/]*$/, "");
-  return folderPath || "./";
-};
+const getHomeHref = () => "/";
 
 const setupHomeLinks = () => {
-  const homeHref = getHomeHref();
-  document.querySelectorAll("[data-home]").forEach((link) => {
-    link.setAttribute("href", homeHref);
+  document.querySelectorAll(".header__logo, .nav__link, [data-home]").forEach((link) => {
+    const isHomeNav = link.classList.contains("nav__link") && link.textContent.trim() === "Beranda";
+    const isLogo = link.classList.contains("header__logo");
+    const isMarked = link.hasAttribute("data-home");
+
+    if (isLogo || isHomeNav || isMarked) {
+      link.setAttribute("href", "/");
+    }
   });
 };
 
