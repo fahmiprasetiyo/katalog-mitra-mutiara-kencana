@@ -6,10 +6,10 @@ const COMPANY = {
   name: "CV Mitra Mutiara Kencana",
   tagline: "Pengadaan Barang & Jasa Acara",
   //phone: "085161970147",
-  phone: "08131323187",
+  phone: "085287471787",
   // Format lokal untuk ditampilkan; konversi ke 62... dilakukan di getWhatsAppNumber()
   //whatsapp: "085161970147",
-  whatsapp: "08131323187",
+  whatsapp: "085287471787",
   email: "mitramutiarakencana@gmail.com",
   address: "Komp. Mutiara Platinum GMP 15, Pulo Gebang, Cakung, Jakarta Timur - DKI Jakarta",
 };
